@@ -11,14 +11,14 @@
 #include <avr/pgmspace.h>
 
 
-// вычисляет CRC-8 массива байтов
+// РІС‹С‡РёСЃР»СЏРµС‚ CRC-8 РјР°СЃСЃРёРІР° Р±Р°Р№С‚РѕРІ
 unsigned char GetCRC8(
 	unsigned char crc,
 	unsigned char * buf,
 	unsigned char len );
 
 
-// вычисляет MODBUS-CRC массива байтов
+// РІС‹С‡РёСЃР»СЏРµС‚ MODBUS-CRC РјР°СЃСЃРёРІР° Р±Р°Р№С‚РѕРІ
 unsigned short GetModbusCRC(
 	unsigned short crc,
 	unsigned char * buf,
@@ -30,13 +30,13 @@ unsigned short GetModbusCRC(
 
 extern unsigned char const PROGMEM crc8_table[256];
 
-// вычисляет CRC-8 одного байта
+// РІС‹С‡РёСЃР»СЏРµС‚ CRC-8 РѕРґРЅРѕРіРѕ Р±Р°Р№С‚Р°
 #define ByteCRC8( crc, b )  pgm_read_byte( crc8_table + (0xFF & ((b) ^ (crc))) )
 
 
 #else /* !defined( CRC8_BY_TABLE ) */
 
-// вычисляет CRC-8 одного байта
+// РІС‹С‡РёСЃР»СЏРµС‚ CRC-8 РѕРґРЅРѕРіРѕ Р±Р°Р№С‚Р°
 unsigned char ByteCRC8( unsigned char crc, unsigned char byte );
 
 #endif /* defined( CRC8_BY_TABLE ) */
@@ -48,7 +48,7 @@ unsigned char ByteCRC8( unsigned char crc, unsigned char byte );
 extern unsigned char const PROGMEM modbus_lo_crc_table[256];
 extern unsigned char const PROGMEM modbus_hi_crc_table[256];
 
-// вычисляет MODBUS-CRC одного байта
+// РІС‹С‡РёСЃР»СЏРµС‚ MODBUS-CRC РѕРґРЅРѕРіРѕ Р±Р°Р№С‚Р°
 #if 1
 #define ByteModbusCRC( crc, b )		({			\
 	unsigned short r_crc = (crc) ^ ((b) & 0xFF);		\
@@ -77,7 +77,7 @@ extern unsigned char const PROGMEM modbus_hi_crc_table[256];
 
 #else /* !defined( MODBUS_CRC_BY_TABLE ) */
 
-// вычисляет MODBUS-CRC одного байта
+// РІС‹С‡РёСЃР»СЏРµС‚ MODBUS-CRC РѕРґРЅРѕРіРѕ Р±Р°Р№С‚Р°
 unsigned short ByteModbusCRC( unsigned short crc, unsigned char b );
 
 #endif /* defined( MODBUS_CRC_BY_TABLE ) */

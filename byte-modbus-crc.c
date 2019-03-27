@@ -1,6 +1,6 @@
 /* share/avr/crc/byte-modbus-crc.c */
 
-/* Вычисление MODBUS-CRC для одного байта */
+/* Р’С‹С‡РёСЃР»РµРЅРёРµ MODBUS-CRC РґР»СЏ РѕРґРЅРѕРіРѕ Р±Р°Р№С‚Р° */
 
 
 #if !defined( MODBUS_CRC_BY_TABLE )
